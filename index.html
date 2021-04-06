@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <title>AJAX - API - Database</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Use Bootstrap for the form styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- Use W3.CSS for the Modal -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- jQuery and Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/1.18.4/jquery.autosize.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Extra Styles for the Bootstrap Forms */
+    h1 {
+      font: 30px Verdana;
+      text-align: center;
+    }
+
+    h2 {
+      font: 20px Verdana;
+      text-align: center;
+    }
+
+    legend {
+      padding: 10px;
+      font: 30px Verdana
+    }
+  </style>
+</head>
+
+<body>
+  <h1>AJAX - API - Database</h1>
+  <br />
+
+  <!-- 
+        Bootstrap Styled Form: Add User to Database 
+        Generated using the Bootsnipp Form Builder and Generator for Bootstrap
+        https://bootsnipp.com/forms
+    -->
+    
+    <!-- Below is the form to add a new user-->
+
+  <form id="add-user" class="form-horizontal" style="padding-bottom:15px">
+    <fieldset>
+  
+      <!-- Form Name -->
+      <legend>Add User</legend>
+      <p style="text-align:center">Please fill out the following data to add user to database</p>
+      <p style="text-align:center">**Required fields are marked with an asterisk</p>
+      <!-- Select Basic -->
+      <div id="customer-data">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Title">*Title</label>
+          <div class="col-md-4">
+            <select id="Title" name="Title" class="form-control" required>
+              <option value="Mx">Mx</option>
+              <option value="Ms">Ms</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Dr">Dr</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="firstname">*First Name :</label>
+          <div class="col-md-4">
+            <input id="firstname" name="firstname" type="text" placeholder="Enter your first name..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+  
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="lastname">*Last Name :</label>
+          <div class="col-md-4">
+            <input id="lastname" name="lastname" type="text" placeholder="Please enter your last name here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+  
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="mobilenumber">*Mobile Number :</label>
+          <div class="col-md-4">
+            <input id="mobilenumber" name="mobilenumber" type="text" placeholder="Enter your mobile number here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+  
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="email">*Email Address : </label>
+          <div class="col-md-4">
+            <input id="email" name="email" type="text" placeholder="Please enter your email here..."
+              class="form-control input-md" required="">
+    
+          </div>
+        </div>
+      </div>
+      
+      <div id="hom-address">
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="homeadressline1">*Home Address Line 1 :</label>
+          <div class="col-md-4">
+            <input id="homeadressline1" name="homeadressline1" type="text" placeholder="Home address line 1 here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="homeaddressline2">Home address Line 2:</label>
+          <div class="col-md-4">
+            <input id="homeaddressline2" name="homeaddressline2" type="text" placeholder="Home address Line 2 here..."
+              class="form-control input-md">
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="town">*Town :</label>
+          <div class="col-md-4">
+            <input id="town" name="town" type="text" placeholder="Town here..." class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="county">*County/city :</label>
+          <div class="col-md-4">
+            <input id="county" name="county" type="text" placeholder="County/city here..." class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="eircode">Eircode :</label>
+          <div class="col-md-4">
+            <input id="eircode" name="eircode" type="text" placeholder="Enter your eircode here"
+              class="form-control input-md">
+    
+          </div>
+        </div>
+      </div>
+
+      <div id="shipping-address">
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="shippingaddressline1">*Shipping Address Line 1 :</label>
+          <div class="col-md-4">
+            <input id="shippingaddressline1" name="shippingaddressline1" type="text"
+              placeholder="Shipping address line 1 here..." class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="shippingaddressline2">Shipping Address Line 2 : </label>
+          <div class="col-md-4">
+            <input id="shippingaddressline2" name="shippingaddressline2" type="text"
+              placeholder="Shipping address line 2 here.." class="form-control input-md">
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="townShipAdd">*Town :</label>
+          <div class="col-md-4">
+            <input id="townShipAdd" name="townShipAdd" type="text" placeholder="Town name here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="countyShipAdd">*County/city here :</label>
+          <div class="col-md-4">
+            <input id="countyShipAdd" name="countyShipAdd" type="text" placeholder="County/city here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="eircodeShipAdd">Eircode :</label>
+          <div class="col-md-4">
+            <input id="eircodeShipAdd" name="eircodeShipAdd" type="text" placeholder="Eircode here..."
+              class="form-control input-md">
+    
+          </div>
+        </div>
+      </div>
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="submitbutton"></label>
+        <div class="col-md-4">
+          <button id="submitbutton" type="submit" name="submitbutton" class="btn btn-primary">Add to database &nbsp; <span class="fa fa-plus-circle fa-lg"></span></button>
+        </div>
+      </div>
+  
+    </fieldset>
+  </form>
+
+  <!-- This form is for deleting a user and takes in an id -->
+
+<div class="container">
+  <div class="row justify-content-center">
+    <form class="form-horizontal" id="delete-user-form">
+      <fieldset>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">User ID :</label>
+          <div class="col-md-4">
+            <input id="delete-id" name="delete-id" type="text" placeholder="Please enter the user ID you wish to delete here..."
+              class="form-control input-md" required>
+              <button id="deleteUser" class="btn btn-danger" style="display: inline">Delete user &nbsp; <span class="fa fa-trash-o fa-lg"></span></button>
+          </div>
+        </div>
+            
+      </fieldset>
+    </form>
+  </div>  
+</div>
+
+<!-- This form is for updating a user in the following fields - number, title and email -->
+
+<form class="form-horizontal" id="update-user-form">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Update User</legend>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-fname">User name</label>
+      <div class="col-md-4">
+        <input id="update-fname" name="update-fname" type="text" placeholder="Please write the user name you want to update here..."
+          class="form-control input-md" required>
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-mobile">Update mobile number here</label>
+      <div class="col-md-4">
+        <input id="update-mobile" name="update-mobile" type="text" placeholder="Please write the users updated mobile number here..."
+          class="form-control input-md" required>
+
+      </div>
+    </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-title">Update title here</label>
+      <div class="col-md-4">
+        <input id="update-title" name="update-title" type="text" placeholder="Please update the user's title here..."
+          class="form-control input-md" required>
+
+      </div>
+    </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-email">Update email address here</label>
+      <div class="col-md-4">
+        <input id="update-email" name="update-email" type="text" placeholder="Please update the user's email address here..."
+          class="form-control input-md" required>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-eircode">Update town here</label>
+      <div class="col-md-4">
+        <input id="update-eircode" name="update-eircode" type="text"
+          placeholder="Please update the user's eircode information here..." class="form-control input-md" required>
+    
+      </div>
+    </div>
+
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-user"></label>
+      <div class="col-md-4">
+        <button id="update-user" name="update-user" class="btn btn-warning">Update User &nbsp;<span class="fa fa-edit fa-lg"></span></button>
+      </div>
+    </div>
+
+    <!-- This button will update a random user between 1 and 10 -->
+
+  </fieldset>
+</form>
+
+<!-- The following buttons are for adding, updating and deleting users and will reveal the necessary forms -->
+
+  <div class="form-group" style="text-align:center">
+    <label class="col-4 control-label" for="submitbutton"></label>
+    <div class="col-4">
+      <button id="addUserButton" name="adduser" class="btn btn-primary">Add user &nbsp;<span class="fa fa-plus-circle fa-lg"></span></button>
+      <button id="deleteUserButton" name="deleteuser" class="btn btn-danger">Delete user &nbsp;<span class="fa fa-trash-o fa-lg"></span></button>
+      <button id="deleteRandomUser" name="deleteRandUser" class="btn btn-danger" > Delete random user &nbsp;<span class="fa fa-trash-o fa-lg"></span></button>
+      <button id="updateUserButton" name="updateUser" class="btn btn-warning">Update user &nbsp;<span class="fa fa-edit fa-lg"></span></button>
+      <button id="update-rand-user" name="update-rand-user" class="btn btn-warning">Update a random user &nbsp;<span class="fa fa-edit fa-lg"></span></button>
+    </div>
+  </div>
+
+</br>
+</br>
+
+<!-- The following three forms display the users general information, home address info and shipping address info on request -->
+
+  <div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <form id="getCustomerData" class="form-horizontal">
+          <fieldset>
+            <!-- Form Name -->
+            <legend>Show Customer Data</legend>
+  
+            <!-- Textarea -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="showCustomerData">User Database</label>
+              <div class="col-md-4">
+                <textarea class="form-control" id="showCustomerData"
+                  name="showCustomerData">Retrieved Data displayed here!</textarea>
+              </div>
+            </div>
+  
+            <!-- Submit -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="submit"></label>
+              <div class="col-4">
+                <button type="submit" id="show-cust" value="Show Customer Data" class="btn btn-success">Show Customer Data &nbsp; <span class="fa fa-eye fa-lg"></span>
+                </button>
+                <button type="submit" id="hide-cust" value="Hide Customer Data" class="btn btn-success">Hide Customer Data &nbsp; <span class="fa fa-eye-slash fa-lg"></span></button>
+              </div>
+            </div>
+  
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <form id="getHomeAddressData" class="form-horizontal">
+            <fieldset>
+              <!-- Form Name -->
+              <legend>Show Home Address Data</legend>
+    
+              <!-- Textarea -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="showHomeAddressData">Home Address Database</label>
+                <div class="col-md-4">
+                  <textarea class="form-control" id="showHomeAddressData"
+                    name="showHomeAddressData">Retrieved Data displayed here!</textarea>
+                </div>
+              </div>
+    
+              <!-- Submit -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-4">
+                  <button type="submit" id="show-home" value="Show Home Address Data" class="btn btn-success">Show Home Address Data &nbsp; <span class="fa fa-eye fa-lg"></span></button>
+                  <button type="submit" id="hide-home" value="Hide Home Address Data" class="btn btn-success">Hide Home Address Data&nbsp; <span class="fa fa-eye-slash fa-lg"></span></button>
+                </div>
+              </div>
+    
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+      <div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <form id="getShippingAddressData" class="form-horizontal">
+              <fieldset>
+                <!-- Form Name -->
+                <legend>Show Shipping Address Data</legend>
+      
+                <!-- Textarea -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="showShippingAddressData">Shipping Address Database</label>
+                  <div class="col-md-4">
+                    <textarea class="form-control" id="showShippingAddressData"
+                      name="showShippingAddressData">Retrieved Data displayed here!</textarea>
+                  </div>
+                </div>
+      
+                <!-- Submit -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-4">
+                    <button type="submit" id="show-ship" value="Show Shipping Address Data" class="btn btn-success">Show Shipping Address Data &nbsp; <span class="fa fa-eye fa-lg"></span></button>
+                    <button type="submit" id="hide-ship" value="Hide Shipping Address Data" class="btn btn-success">Hide Shipping Address Data&nbsp; <span class="fa fa-eye-slash fa-lg"></span></button>
+                  </div>
+                </div>
+      
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+
+ 
+
+  <!-- 
+        jQuery Scripts used to implement form processing and Ajax functionality
+        https://www.w3schools.com/w3css/w3css_modal.asp
+    -->
+  <script>
+    $(document).ready( () => {
+
+      //On page load the three forms are hidden
+
+      $('#add-user').css('display', 'none');
+      $('#delete-user-form').css('display', 'none');
+      $('#update-user-form').css('display', 'none');
+      
+      // handle "Add User to Database" submit button click
+      $('#add-user').submit( e => {
+        
+        let formData = Object.fromEntries(new FormData(e.target));
+        alert("A new user has been added to the database");
+        $.ajax({
+          type: 'POST',
+          url: 'http://localhost:8000/api/user',
+          data: formData
+        }).done( () => {
+            // reset the form for next time!
+            $('select[name=title]').val('');
+            $('input[name=firstname]').val('');
+            $('input[name=lastname]').val('');
+            $('input[name=mobilenumber]').val('');
+            $('input[name=email]').val('');
+            $('input[name=homeaddressline1]').val('');
+            $('input[name=homeaddressline2]').val('');
+            $('input[name=town]').val('');
+            $('input[name=county]').val('');
+            $('input[name=eircode]').val('');
+            $('input[name=shippingaddressline1]').val('');
+            $('input[name=shippingaddressline2]').val('');
+            $('input[name=townShipAdd]').val('');
+            $('input[name=countyShipAdd]').val('');
+            $('input[name=eircodeShipAdd]').val('');
+        
+            // https://www.w3schools.com/jquery/jquery_css.asp
+          $('#add-user').css('display', 'none');
+          $('#addUserButton').css('display', 'inline');
+          $('#deleteUserButton').css('display', 'inline');
+          $('#updateUserButton').css('display', 'inline');
+          $('#deleteRandomUser').css('display', 'inline');
+          $('#update-rand-user').css('display', 'inline');
+
+          
+          });
+          e.preventDefault();
+        // when method is called, the default action of the event will not be triggered.
+        // meand that clicked submit button will not take the browser to a new URL.
+      });
+
+      // Handle "Delete user" form 
+      $('#deleteUser').on('click',(e) => {
+
+        var user = {
+          id: $('input[name=delete-id]').val(),
+         
+        };
+
+        alert(`User ${user.id}'s records have been deleted`);
+
+        $.ajax({
+          type: 'DELETE',
+          url: 'http://localhost:8000/api/deleteUser',
+          data: user
+        }).done((user) => {
+
+          // reset the form for next time!
+          $('input[name=delete-id]').val('');
+          
+          
+          
+
+          $('#delete-user-form').css('display', 'none');
+          $('#addUserButton').css('display', 'inline');
+          $('#deleteUserButton').css('display', 'inline');
+          $('#updateUserButton').css('display', 'inline');
+          $('#deleteRandomUser').css('display', 'inline');
+          $('#update-rand-user').css('display', 'inline');
+
+        })
+
+        e.preventDefault();
+      })
+
+      // Handle "Delete random user" button click
+
+      $('#deleteRandomUser').click( (e) => {
+
+        
+
+        $('#delete-user-form').css('display', 'none');
+        $('#addUserButton').css('display', 'inline');
+        $('#deleteUserButton').css('display', 'inline');
+        $('#updateUserButton').css('display', 'inline');
+        $('#deleteRandomUser').css('display', 'inline');
+        $('#update-rand-user').css('display', 'inline');
+
+        alert(`A random user's records have been deleted`);
+
+
+        $.ajax({
+          type: 'DELETE',
+          url: 'http://localhost:8000/api/deleteRandUser', 
+        })
+
+        
+
+        e.preventDefault();
+      })
+
+      // Handle "Update User" form submission
+      $('#update-user').click( e => {
+
+        
+        var user = {
+          firstname: $('input[name=update-fname]').val(),
+          mobile: $('input[name=update-mobile]').val(),
+          title: $('input[name=update-title]').val(),
+          email: $('input[name=update-email]').val(),
+          eircode: $('input[name=update-eircode]').val()
+        };
+
+        alert(`${$('input[name=update-fname]').val()}'s number, title and email have been updated`);
+        $.ajax({
+          type: 'PUT',
+          url: 'http://localhost:8000/api/updateUser',
+          data: user
+        }).done(() => {
+
+          // reset the form for next time!
+          $('input[name=update-fname]').val('');
+          $('input[name=update-mobile]').val('');
+          $('input[name=update-title]').val('');
+          $('input[name=update-email]').val('');
+          $('input[name=update-eircode]').val('');
+          
+
+          $('#update-user-form').css('display', 'none');
+          $('#addUserButton').css('display', 'inline');
+          $('#deleteUserButton').css('display', 'inline');
+          $('#updateUserButton').css('display', 'inline');
+          $('#deleteRandomUser').css('display', 'inline');
+          $('#update-rand-user').css('display', 'inline');
+
+        
+
+        });
+
+        e.preventDefault();
+      })
+
+      // Handles "Update a random user" button click
+
+      $('#update-rand-user').click( e => {
+
+        $('#update-user-form').css('display', 'none');
+        $('#addUserButton').css('display', 'inline');
+        $('#deleteUserButton').css('display', 'inline');
+        $('#updateUserButton').css('display', 'inline');
+        $('#deleteRandomUser').css('display', 'inline');
+        $('#update-rand-user').css('display', 'inline');
+
+        alert("A random users number, title and email have been updated");
+        $.ajax({
+          type: 'PUT',
+          url: 'http://localhost:8000/api/updateRandomUser',
+        });
+
+        e.preventDefault();
+      })
+
+      // handle "Show Customer Data" submit button click
+      $('#show-cust').click(e => {
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/api/user'
+        })
+          .done(function (data) {
+            // display the database in the textarea and trigger an input change event
+            $('#showCustomerData').val(JSON.stringify(data, null, 2)).trigger('input');
+          });
+        e.preventDefault(); // when method is called, the default action of the event will not be triggered.
+        // meand that clicked submit button will not take the browser to a new URL.
+      });
+
+      // handle "Show Home Address Data" submit button click
+      $('#show-home').click(e => {
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/api/homeAddress'
+        })
+          .done(function (data) {
+            // display the database in the textarea and trigger an input change event
+            $('#showHomeAddressData').val(JSON.stringify(data, null, 2)).trigger('input');
+          });
+        e.preventDefault(); // when method is called, the default action of the event will not be triggered.
+        // meand that clicked submit button will not take the browser to a new URL.
+      });
+
+      // handle "Show CShipping Address Data" submit button click
+      $('#show-ship').click(e => {
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/api/shippingAddress'
+        })
+          .done(function (data) {
+            // display the database in the textarea and trigger an input change event
+            $('#showShippingAddressData').val(JSON.stringify(data, null, 2)).trigger('input');
+          });
+        e.preventDefault(); // when method is called, the default action of the event will not be triggered.
+        // meand that clicked submit button will not take the browser to a new URL.
+      });
+
+      // Handles "Hide Customer Data" button click
+      $('#hide-cust').click(e => {
+        $('#showCustomerData').val('').trigger('input');
+        e.preventDefault();
+      })
+
+      // Handles "Hide Home Address Data" button click
+      $('#hide-home').click(e => {
+        $('#showHomeAddressData').val('').trigger('input');
+        e.preventDefault();
+      })
+
+      // Handles "Hide Shipping Address Data" button click
+      $('#hide-ship').click(e => {
+        $('#showShippingAddressData').val('').trigger('input');
+        e.preventDefault();
+      })
+
+      // The following funcitons handle different button clicks and hide/display the appropriate forms/buttons
+      $("#addUserButton").click(() => {
+        console.log('clicked');
+        $('#add-user').css('display', 'block');
+        $('#addUserButton').css('display', 'none');
+      })
+
+      $("#deleteUserButton").click(() => {
+        console.log('clicked');
+        $('#delete-user-form').css('display', 'block');
+        $('#addUserButton').css('display', 'none');
+        $('#deleteUserButton').css('display', 'none');
+        $('#updateUserButton').css('display', 'none');
+        $('#deleteRandomUser').css('display', 'none');
+        $('#update-rand-user').css('display', 'none');
+
+      })
+
+      $("#updateUserButton").click(() => {
+        console.log('clicked');
+        $('#update-user-form').css('display', 'block');
+        $('#addUserButton').css('display', 'none');
+        $('#deleteUserButton').css('display', 'none');
+        $('#updateUserButton').css('display', 'none');
+        $('#deleteRandomUser').css('display', 'none');
+        $('#update-rand-user').css('display', 'none');
+      })
+
+      // The following functions utilise the autosize node package
+      
+      $("#showCustomerData").on("input", () => {
+        $("#showCustomerData").autosize();
+      });
+
+      $("#showHomeAddressData").on("input", () => {
+        $("#showHomeAddressData").autosize();
+
+      });
+
+      $("#showShippingAddressData").on("input", () => {
+        $("#showShippingAddressData").autosize();
+      });
+
+    
+
+    });
+
+  </script>
+
+</body>
+
+</html>
