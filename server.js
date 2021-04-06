@@ -8,10 +8,10 @@ const { parse } = require("querystring");
 const server = http.createServer(); // create the server
 
 const con = mysql.createConnection({
-  host: "webcourse.cs.nuim.ie",
-  user: "p210086",
-  password: "aigh6ShaeB7Eed2h",
-  database: "cs230_p210086"
+  host: "<hostURL>",
+  user: "<username>",
+  password: "<userPW>",
+  database: "<dbName>"
 });
 
 con.connect((err) => {
