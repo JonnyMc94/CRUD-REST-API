@@ -6,6 +6,10 @@ const port = 8000; // port the server with listen on
 const mysql = require("mysql");
 const { parse } = require("querystring");
 const server = http.createServer(); // create the server
+const express = require('express');
+const app = express();
+
+app.use("/static", express.static('./static/'));
 
 const con = mysql.createConnection({
   host: "<hostURL>",
